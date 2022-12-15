@@ -24,14 +24,11 @@ function fetchCocktailList(){
     fetch(`${url}${searchInput}`)
     .then(resp=>resp.json())
     .then(data=>{
+        cocktailList.innerHTML= "";
         if(data.drinks){
-            displayData(data.drinks)
-            cocktailList.classList.remove('unavailable')
-        }else{
-            html = `Sorry, no match for the ingredient`
-            cocktailList.classList.add('unavailable') 
-        }
-})
+            data.drinks.map(cocktail=>renderCocktail(cocktail))       
+        }        
+    })
 }
 
 function getCocktailRecipe(event){
@@ -69,37 +66,37 @@ function cocktailRecipeDisplay(drink){
 
 
 ///////////////////////////////LOCAL DATA////////////////////////////////////////////////////
+//Fetch Requests
 function fetchLocalData(){
     return fetch("http://localhost:3000/drinks")
     .then(resp=>resp.json())
-    .then(data=>displayData(data))
+    .then(cocktailData=>cocktailData.map(cocktail=>renderCocktail(cocktail)))
 
 }
 
 //Displays data for both the public and local database
-function displayData(data){
-    console.log(data) 
-    let html = "";      
-    data.map(drink=>{
-        html+=`
-        <div class="cocktail-item" data-id= "${drink.idDrink}" >
-            <div class="cocktail-img">
-                <img src=${drink.strDrinkThumb} alt="cocktail">
-            </div>
-            <div class="cocktail-name">
-            <h3>${drink.strDrink}</h3>
-                <a href="#" class="recipe-btn">Get recipe</a>
-            </div>  
-            <button> Delete </button>                  
-        </div>
-                `
-            })   
-            cocktailList.innerHTML = html;
-}
+// function displayData(data){
+//     console.log(data) 
+//     let html = "";      
+//     data.map(drink=>{
+//         html+=`
+//         <div class="cocktail-item" data-id= "${drink.idDrink}" >
+//             <div class="cocktail-img">
+//                 <img src=${drink.strDrinkThumb} alt="cocktail">
+//             </div>
+//             <div class="cocktail-name">
+//             <h3>${drink.strDrink}</h3>
+//                 <a href="#" class="recipe-btn">Get recipe</a>
+//             </div>  
+//             <button> Delete </button>                  
+//         </div>
+//                 `
+//             })   
+//             cocktailList.innerHTML = html;
+// }
 //////////////////////////////////// CREATING A NEW COCKTAIL ////////////////////////////////////
-function displayNewCocktail(drink){
-    let html;
-    html+=`
+function renderCocktail(drink){    
+    cocktailList.innerHTML+=`
         <div class="cocktail-item" data-id= "${drink.idDrink}" >
             <div class="cocktail-img">
                 <img src=${drink.strDrinkThumb} alt="cocktail">
@@ -111,8 +108,15 @@ function displayNewCocktail(drink){
             <button> Delete </button>                  
         </div>
                 `
-    cocktailList.innerHTML = html;
+     
 }   
+
+function initialize(){
+    // cocktailData.map(cocktail=>renderCocktail(cocktail));
+
+}
+
+initialize()
           
 
 //Event listener
@@ -127,7 +131,7 @@ function handleSubmit(e){
         strDrinkThumb: e.target.image.value,
         strInstructions:e.target.instructions.value
         }
-        displayNewCocktail(newCocktail);
+        renderCocktail(newCocktail);
         addNewItem(newCocktail);
         newCocktailForm.reset()
     } 
