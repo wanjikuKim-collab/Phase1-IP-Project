@@ -32,7 +32,7 @@
 
                     <!--cocktail details-->
                     <div class="cocktail-details-content">
-                        <h2 class="recipe-title">Cocktail Name Here </h2>
+                        <!-- <h2 class="recipe-title">Cocktail Name Here </h2>
                         <p class="recipe-category">Category Name</p>
                         <div class="recipe-instructions">
                             <h3>Instructions:</h3>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="recipe-link">
                             <a href="#" target="_blank">Watch video</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!--search result-->
@@ -59,17 +59,31 @@
                     <h2 class="title">Your search results:</h2>
                     <div id="cocktail">
                         <!---displays cocktail--->
-                        <div class="cocktail-item">
-                            <div class="cocktail-img">
-                                <img src="/png/manhattan.jpg" alt="cocktail">
-                            </div>
-                            <div class="cocktail-name">
-                                <h3>Apple Pie Moonshine</h3>
-                                <a href="#" class="recipe-btn">Get recipe</a>
-                            </div>                        
-                        </div>
+                        <!-- <div class="cocktail-item">
+                                <div class="cocktail-img">
+                                    <img src="/png/manhattan.jpg" alt="cocktail">
+                                </div>
+                                <div class="cocktail-name">
+                                    <h3>Apple Pie Moonshine</h3>
+                                    <a href="#" class="recipe-btn">Get recipe</a>
+                                </div>                        
+                            </div> -->
                         <!--end of item-->
                     </div>
+                </div>
+                <div>
+                    <form id="new-ramen">
+                        <h4>Add New Cocktail</h4>
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" id="new-name" />
+                        <label for="image">Image: </label>
+                        <input type="text" name="image" id="new-image" />
+                        <label for="rating">Rating: </label>
+                        <input type="number" name="rating" id="new-rating" />
+                        <label for="new-comment">Comment: </label>
+                        <textarea name="new-comment" id="new-comment"></textarea>
+                        <input type="submit" value="Create" />
+                      </form> 
                 </div>
             </div>
         </div>
