@@ -1,0 +1,33 @@
+{
+  "drinks": [
+    {
+      "idDrink": "1",
+		  "strDrink": "Apple Pie Moonshine",
+      "strCategory": "Alcoholic Drink",	
+		  "strInstructions": "Bring the apple juice, cider, sugar, nutmeg,ground cinnamon and 8 cinnamon sticks to a boil.Remove from heat and let cool to room temperature.Make sure mixture is completely cooled before adding alcohol.Strain the cinnamon sticks out and pour into jars.Divide remaining 6 cinnamon sticks among jars. Finally, place lids on jars and allow to sit to blend and mellow in a dry place for 8 weeks before enjoying.",
+		  "strDrinkThumb": "/png/manhattan.jpg",
+      "Rating": "8",
+      "Comment": "Great flavor! Strong but tasty!!!"
+    },
+    {
+      "idDrink": "2",
+		  "strDrink": "Mojitto",
+      "strCategory": "Ordinary Drink",	
+		  "strInstructions": "Bring the apple juice, cider, sugar, nutmeg,ground cinnamon and 8 cinnamon sticks to a boil.Remove from heat and let cool to room temperature.Make sure mixture is completely cooled before adding alcohol.Strain the cinnamon sticks out and pour into jars.Divide remaining 6 cinnamon sticks among jars. Finally, place lids on jars and allow to sit to blend and mellow in a dry place for 8 weeks before enjoying.",
+		  "strDrinkThumb": "/png/mojitto.jpg",
+      "Rating": "7",
+      "Comment": "Soooooo GOOD"
+    },
+    {
+      "idDrink": "3",
+		  "strDrink": "pink-lemonade",
+      "strCategory": "Ordinary Drink",	
+		  "strInstructions": "Bring the apple juice, cider, sugar, nutmeg,ground cinnamon and 8 cinnamon sticks to a boil.Remove from heat and let cool to room temperature.Make sure mixture is completely cooled before adding alcohol.Strain the cinnamon sticks out and pour into jars.Divide remaining 6 cinnamon sticks among jars. Finally, place lids on jars and allow to sit to blend and mellow in a dry place for 8 weeks before enjoying.",
+		  "strDrinkThumb": "/png/pink-lemonade.jpg",
+      "Rating": "9",
+      "Comment": "refreshing"
+    
+    }
+    
+  ]
+}
