@@ -65,7 +65,7 @@ function cocktailRecipeDisplay(drink){
 }
 
 
-///////////////////////////////LOCAL DATA////////////////////////////////////////////////////
+////////////////////////////////////////LOCAL DATA////////////////////////////////////////////////////
 //Fetch Requests
 function fetchLocalData(){
     return fetch("http://localhost:3000/drinks")
@@ -73,28 +73,7 @@ function fetchLocalData(){
     .then(cocktailData=>cocktailData.map(cocktail=>renderCocktail(cocktail)))
 
 }
-
-//Displays data for both the public and local database
-// function displayData(data){
-//     console.log(data) 
-//     let html = "";      
-//     data.map(drink=>{
-//         html+=`
-//         <div class="cocktail-item" data-id= "${drink.idDrink}" >
-//             <div class="cocktail-img">
-//                 <img src=${drink.strDrinkThumb} alt="cocktail">
-//             </div>
-//             <div class="cocktail-name">
-//             <h3>${drink.strDrink}</h3>
-//                 <a href="#" class="recipe-btn">Get recipe</a>
-//             </div>  
-//             <button> Delete </button>                  
-//         </div>
-//                 `
-//             })   
-//             cocktailList.innerHTML = html;
-// }
-//////////////////////////////////// CREATING A NEW COCKTAIL ////////////////////////////////////
+// Creating a new cocktail
 function renderCocktail(drink){    
     cocktailList.innerHTML+=`
         <div class="cocktail-item" data-id= "${drink.idDrink}" >
