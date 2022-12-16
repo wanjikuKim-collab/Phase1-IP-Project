@@ -1,7 +1,9 @@
 const searchButton = document.querySelector("#search-btn");
 const cocktailList= document.querySelector("#cocktail");
 const cocktailDetailsContent= document.querySelector(".cocktail-details-content");
-const recipeCloseBtn = document.querySelector("#recipe-close-btn")
+const recipeCloseBtn = document.querySelector("#recipe-close-btn");
+const cocktailItem = document.querySelector(".cocktail-item")
+
 
 
 //event listeners
@@ -60,7 +62,6 @@ function cocktailRecipeDisplay(drink){
          <img src=${drink.strDrinkThumb} alt="">
      </div>
      `
-
      cocktailDetailsContent.parentElement.classList.add('showRecipe')
 }
 
@@ -84,19 +85,15 @@ function renderCocktail(drink){
             <h3>${drink.strDrink}</h3>
                 <a href="#" class="recipe-btn">Get recipe</a>
             </div>  
-            <button> Delete </button>                  
+            <button id="delete"> Delete </button>                  
         </div>
-                `
-     
-}   
-
-function initialize(){
-    // cocktailData.map(cocktail=>renderCocktail(cocktail));
-
-}
-
-initialize()
-          
+    `
+    cocktailList.querySelector("#delete").addEventListener("click",(e)=>{
+        console.log(e.target) 
+       
+    })
+} 
+       
 
 //Event listener
 const newCocktailForm = document.getElementById('new-cocktail');
@@ -119,10 +116,17 @@ function addNewItem(newCocktail){
     fetch("http://localhost:3000/drinks",{
         method: "POST",
         headers:{
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            Accept: "application/json",
         },
         body: JSON.stringify(newCocktail)
     })
     .then(response=>response.json())
-    .then(data=>data)    
+    .then(data=> console.log(data))   
+    .catch(function (error) {
+        alert("Bad things! Ragnarők!");
+        console.log(error.message);
+      });  
 } 
+
+

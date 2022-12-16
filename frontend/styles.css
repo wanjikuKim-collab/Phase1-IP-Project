@@ -22,6 +22,13 @@ body{
 .title{
     font-size: 1.8rem;
     margin-bottom: 1rem;
+    color: aliceblue;
+}
+
+blockquote{
+    color:#AE6661;
+    font-weight:500;
+    font-size: 1rem;
 }
 
 .text{
@@ -45,6 +52,7 @@ body{
     margin: 0 auto;
     padding: 2rem;
     background-color: #e7d0ce;
+    background-image: url("/png/black-grunge-background.jpg");
     text-align: center;
 }
 
@@ -59,8 +67,7 @@ body{
     align-items: stretch;
 }
 
-.search-content,
-.search-btn
+.search-content
 {
     width:100%;
 }
@@ -84,10 +91,7 @@ body{
    border: none;
    border-top-right-radius: 2rem;
    border-bottom-right-radius: 2rem;
-   width:48px;
-   height: 48px;
    font-size: 1.8rem;
-   background-color: #c8c048;
    color: white;
 }
 
@@ -202,6 +206,7 @@ body{
 
 .cocktail-item{
     margin: 2rem 0;
+    background-color:#d4d2d2;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 5px 20px -12px rgba(0, 0, 0, 0.79);   
