@@ -2,7 +2,8 @@ const searchButton = document.querySelector("#search-btn");
 const cocktailList= document.querySelector("#cocktail");
 const cocktailDetailsContent= document.querySelector(".cocktail-details-content");
 const recipeCloseBtn = document.querySelector("#recipe-close-btn");
-const cocktailItem = document.querySelector(".cocktail-item")
+const cocktailItem = document.querySelector(".cocktail-item");
+
 
 
 
@@ -48,6 +49,23 @@ function getCocktailRecipe(event){
    }
 }
 
+
+//displaying images
+function renderCocktail(drink){    
+    cocktailList.innerHTML+=`
+        <div class="cocktail-item" data-id= "${drink.idDrink}" >
+            <div class="cocktail-img">
+                <img src=${drink.strDrinkThumb} alt="cocktail">
+            </div>
+            <div class="cocktail-name">
+            <h3>${drink.strDrink}</h3>
+                <a href="#" class="recipe-btn">Get recipe</a>
+            </div>                          
+        </div>
+    `
+
+}
+
 //displaying the cocktail recipe
 function cocktailRecipeDisplay(drink){
     console.log(drink)
@@ -57,12 +75,21 @@ function cocktailRecipeDisplay(drink){
      <div class="recipe-instructions">
          <h3>Instructions:</h3>
          <p>${drink.strInstructions}</p>
+    <div class= "buttons"> 
+         <button id="delete"> Delete </button> 
+         <button id="edit"> Edit </button> 
+    </div>
      </div>
      <div class="recipe-cocktail-img">
          <img src=${drink.strDrinkThumb} alt="">
      </div>
      `
      cocktailDetailsContent.parentElement.classList.add('showRecipe')
+
+     cocktailDetailsContent.querySelector("#delete").addEventListener("click",(e)=>{
+        console.dir(e.target.parentElement.parentElement) 
+        e.target.parentElement.parentElement.innerText = "";
+    })
 }
 
 
@@ -74,26 +101,6 @@ function fetchLocalData(){
     .then(cocktailData=>cocktailData.map(cocktail=>renderCocktail(cocktail)))
 
 }
-// Creating a new cocktail
-function renderCocktail(drink){    
-    cocktailList.innerHTML+=`
-        <div class="cocktail-item" data-id= "${drink.idDrink}" >
-            <div class="cocktail-img">
-                <img src=${drink.strDrinkThumb} alt="cocktail">
-            </div>
-            <div class="cocktail-name">
-            <h3>${drink.strDrink}</h3>
-                <a href="#" class="recipe-btn">Get recipe</a>
-            </div>  
-            <button id="delete"> Delete </button>                  
-        </div>
-    `
-    cocktailList.querySelector("#delete").addEventListener("click",(e)=>{
-        console.log(e.target) 
-       
-    })
-} 
-       
 
 //Event listener
 const newCocktailForm = document.getElementById('new-cocktail');

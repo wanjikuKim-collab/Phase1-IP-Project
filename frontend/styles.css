@@ -19,6 +19,12 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* NAVBAR */
+.navbar-brand{
+    color: var(--charcoal)!important;
+    font-weight: bolder !important;
+}
+
 .title{
     font-size: 1.8rem;
     margin-bottom: 1rem;
@@ -51,7 +57,7 @@ blockquote{
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: #e7d0ce;
+    background-color:#AE6661;
     background-image: url("/png/black-grunge-background.jpg");
     text-align: center;
 }
@@ -321,4 +327,9 @@ form {
     margin: 0.5rem 0;
     color: white;
     background-color: black;
+  }
+
+  .buttons{
+    display: flex;
+    align-items: center;
   }
