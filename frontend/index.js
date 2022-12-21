@@ -9,12 +9,14 @@ const cocktailItem = document.querySelector(".cocktail-item");
 
 //event listeners
 document.addEventListener("DOMContentLoaded",()=>{
+    //search button
     searchButton.addEventListener("click",fetchCocktailList)
+    //cocktail recipe
     cocktailList.addEventListener("click",getCocktailRecipe)
+    //recipe close button
     recipeCloseBtn.addEventListener("click",()=>{
         cocktailDetailsContent.parentElement.classList.remove('showRecipe')
     })
-    fetchLocalData()
 })
 
 //Base URL
@@ -34,22 +36,6 @@ function fetchCocktailList(){
     })
 }
 
-function getCocktailRecipe(event){
-    event.preventDefault();
-   if(event.target.classList.contains("recipe-btn")){
-        let cocktailItem = event.target.parentElement.parentElement;
-        console.log(cocktailItem)
-        //fetches recipe by ID tag
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailItem.dataset.id}`)
-        .then(resp=>resp.json())
-        .then(data=>{
-            console.log(data)
-            cocktailRecipeDisplay(data.drinks[0])
-        })
-   }
-}
-
-
 //displaying images
 function renderCocktail(drink){    
     cocktailList.innerHTML+=`
@@ -66,6 +52,25 @@ function renderCocktail(drink){
 
 }
 
+
+function getCocktailRecipe(event){
+    event.preventDefault();
+   if(event.target.classList.contains("recipe-btn")){
+        let cocktailItem = event.target.parentElement.parentElement;
+        console.log(cocktailItem)
+        //fetches recipe by ID tag
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailItem.dataset.id}`)
+        .then(resp=>resp.json())
+        .then(data=>{
+            console.log(data)
+            cocktailRecipeDisplay(data.drinks[0])
+        })
+   }
+}
+
+
+
+
 //displaying the cocktail recipe
 function cocktailRecipeDisplay(drink){
     console.log(drink)
@@ -75,32 +80,30 @@ function cocktailRecipeDisplay(drink){
      <div class="recipe-instructions">
          <h3>Instructions:</h3>
          <p>${drink.strInstructions}</p>
-    <div class= "buttons"> 
-         <button id="delete"> Delete </button> 
-         <button id="edit"> Edit </button> 
-    </div>
+        <div class= "buttons"> 
+            <button id="delete"> Delete </button> 
+            <button id="edit"> Edit </button> 
+        </div>
      </div>
      <div class="recipe-cocktail-img">
          <img src=${drink.strDrinkThumb} alt="">
      </div>
      `
      cocktailDetailsContent.parentElement.classList.add('showRecipe')
-
-     cocktailDetailsContent.querySelector("#delete").addEventListener("click",(e)=>{
-        console.dir(e.target.parentElement.parentElement) 
-        e.target.parentElement.parentElement.innerText = "";
-    })
+     
+     document.querySelector('#delete').addEventListener("click", (e)=>{
+        console.dir(e.target)
+     })
 }
 
 
-////////////////////////////////////////LOCAL DATA////////////////////////////////////////////////////
-//Fetch Requests
-function fetchLocalData(){
-    return fetch("http://localhost:3000/drinks")
-    .then(resp=>resp.json())
-    .then(cocktailData=>cocktailData.map(cocktail=>renderCocktail(cocktail)))
+// //Fetch Requests
+// function fetchLocalData(){
+//     return fetch("http://localhost:3000/drinks")
+//     .then(resp=>resp.json())
+//     .then(cocktailData=>cocktailData.map(cocktail=>renderCocktail(cocktail)))
+// }
 
-}
 
 //Event listener
 const newCocktailForm = document.getElementById('new-cocktail');

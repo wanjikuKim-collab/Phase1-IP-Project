@@ -102,12 +102,12 @@ blockquote{
 }
 
 .search-btn:hover{
-    color:#50583b
+    color:#e0ddb0
 }
 
 /* cocktail details */
 .cocktail-details{
-    background-color: #AE6661;
+    background-color: #cca4a1;
     border-radius: 1rem;
     width: 90%;
     height: 90%;
@@ -160,7 +160,7 @@ blockquote{
     font-weight: 100;
     color: #442123;
     display: inline-block;
-    padding: 0.2rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 0.25rem;
 
 }
@@ -297,6 +297,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    color: #AE6661;
   }
   
   input,

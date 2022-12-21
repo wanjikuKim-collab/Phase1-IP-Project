@@ -27,10 +27,10 @@
                     <a class="nav-link active fs-3" aria-current="page" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fs-5" href="#">About</a>
+                    <a class="nav-link active fs-5" href="#">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fs-5">Pricing</a>
+                    <a class="nav-link active fs-5">Pricing</a>
                   </li>
                 </ul>
               </div>
@@ -56,6 +56,19 @@
                     <div class="cocktail-details-content">
                     </div>
                 </div>
+                <!--create new cocktail-->
+                <div>
+                  <form id="new-cocktail">
+                      <h4>Add New Cocktail</h4>
+                      <label for="name">Name: </label>
+                      <input type="text" name="name" id="new-name" />                        
+                      <label for="image">Image: </label>
+                      <input type="text" name="image" id="new-image" />
+                      <label for="Instructions">Instructions: </label>
+                      <input type="text" name="instructions" id="instructions" />
+                      <input type="submit" value="Create" />
+                    </form> 
+              </div>
                 <!--search result-->
                 <div class="cocktail-result">
                     <h2 class="title">Your search results:</h2>
@@ -63,18 +76,7 @@
                     <!---displays cocktail--->
                     </div>
                 </div>
-                <div>
-                    <form id="new-cocktail">
-                        <h4>Add New Cocktail</h4>
-                        <label for="name">Name: </label>
-                        <input type="text" name="name" id="new-name" />                        
-                        <label for="image">Image: </label>
-                        <input type="text" name="image" id="new-image" />
-                        <label for="Instructions">Instructions: </label>
-                        <input type="text" name="instructions" id="instructions" />
-                        <input type="submit" value="Create" />
-                      </form> 
-                </div>
+                
             </div>
         </div>
     </div>
